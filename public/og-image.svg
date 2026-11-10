@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <rect width="1200" height="630" fill="#171719"/>
+  <path d="M85 110h1030M85 520h1030" stroke="#37383d"/>
+  <text x="86" y="82" fill="#9fa5af" font-family="Courier New,monospace" font-size="24">~/boris_</text>
+  <text x="86" y="235" fill="#7d8189" font-family="Courier New,monospace" font-weight="bold" font-size="62">#</text>
+  <text x="145" y="235" fill="#e7e8ed" font-family="Courier New,monospace" font-weight="bold" font-size="62">Boris Bezmenov</text>
+  <text x="86" y="320" fill="#c5d7ef" font-family="Courier New,monospace" font-size="31">Mathematics &amp; Machine Learning</text>
+  <text x="86" y="475" fill="#a2a5ae" font-family="Courier New,monospace" font-size="21">Bonn, Germany  ·  Python  ·  research</text>
+</svg>

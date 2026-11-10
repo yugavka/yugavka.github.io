@@ -1,0 +1,21 @@
+{
+  "updatedAt": "2026-11-10T09:33:31Z",
+  "ranks": {
+    "enveda-CASMI26-molecule-id-mass-spectra": {
+      "rank": 212,
+      "teamCount": 5058
+    },
+    "name-that-llm": {
+      "rank": 388,
+      "teamCount": 5322
+    },
+    "squares-in-squares": {
+      "rank": 431,
+      "teamCount": 1891
+    },
+    "biohub-cell-tracking-during-development": {
+      "rank": 252,
+      "teamCount": 3947
+    }
+  }
+}
