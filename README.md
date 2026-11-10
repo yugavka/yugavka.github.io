@@ -42,7 +42,7 @@ For a **project site**, use any other repository name. Its URL is `https://usern
 
 The Vite configuration reads `GITHUB_REPOSITORY` during the GitHub Actions build and chooses the correct base path automatically. For another host or a custom path, set `VITE_BASE_PATH` (including leading and trailing slashes) before building, for example `VITE_BASE_PATH=/portfolio/ npm run build`.
 
-For automatic Kaggle updates on GitHub Pages, add a repository Actions secret named `KAGGLE_API_TOKEN` with a token from Kaggle's API settings. The deployment workflow refreshes the places and rebuilds the site every six hours (UTC), as well as on pushes and manual runs. Without the secret, ordinary pushes still deploy the checked-in snapshot; scheduled refreshes fail explicitly so stale data is not silently labelled current. Kaggle's `userRank` is the public leaderboard place. Biohub's completed result and bronze medal were also checked on the public profile.
+For automatic Kaggle updates on GitHub Pages, add a repository Actions secret named `KAGGLE_API_TOKEN` with the plain API token from Kaggle's API settings (not the contents of a legacy `kaggle.json` file). The deployment workflow refreshes the places and rebuilds the site every six hours (UTC), as well as on pushes and manual runs. If Kaggle authentication or its API fails, the workflow warns and publishes the checked-in snapshot; the date shown on the site remains the date of that snapshot. Kaggle's `userRank` is the public leaderboard place. Biohub's completed result and bronze medal were also checked on the public profile.
 
 If the default branch is not `main`, update the branch name in `.github/workflows/deploy.yml`.
 

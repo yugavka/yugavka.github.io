@@ -6,6 +6,7 @@ configuration. Credentials never appear in the generated JSON.
 """
 
 import json
+import os
 import subprocess
 from datetime import datetime, timezone
 from pathlib import Path
@@ -24,10 +25,17 @@ OUTPUT = Path(__file__).resolve().parents[1] / "src" / "data" / "kaggleRanks.jso
 def main() -> None:
     result = subprocess.run(
         ["kaggle", "competitions", "list", "--group", "entered", "--format", "json", "--page-size", "100"],
-        check=True,
         capture_output=True,
         text=True,
     )
+    if result.returncode:
+        details = (result.stderr or result.stdout).strip()
+        for name in ("KAGGLE_API_TOKEN", "KAGGLE_KEY"):
+            secret = os.environ.get(name)
+            if secret:
+                details = details.replace(secret, "[REDACTED]")
+        raise RuntimeError(f"Kaggle CLI failed (exit {result.returncode}): {details[-2000:] or 'no error details'}")
+
     entries = json.loads(result.stdout)
     if not isinstance(entries, list):
         raise ValueError("Kaggle returned an unexpected competition list")
