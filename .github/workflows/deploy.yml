@@ -35,14 +35,14 @@ jobs:
           KAGGLE_API_TOKEN: ${{ secrets.KAGGLE_API_TOKEN }}
         run: |
           if [ -n "$KAGGLE_API_TOKEN" ]; then
-            python -m pip install kaggle==2.2.5
+            python -m pip install kaggle==2.2.5 six==1.17.0
             python scripts/update_kaggle_ranks.py
           else
             echo "::warning::KAGGLE_API_TOKEN is not set; using the checked-in leaderboard snapshot."
           fi
       - name: Report Kaggle refresh failure
         if: steps.kaggle_refresh.outcome == 'failure'
-        run: echo "::warning::Kaggle refresh failed; publishing the checked-in leaderboard snapshot. See the preceding error and check KAGGLE_API_TOKEN."
+        run: echo "::warning::Kaggle refresh failed; publishing the checked-in leaderboard snapshot. See the preceding error."
       - run: npm ci
       - run: npm run build
       - uses: actions/configure-pages@v5
